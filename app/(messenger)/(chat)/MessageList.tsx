@@ -13,7 +13,7 @@ export default function MessageList({ messages, receiver }: MessageListProps) {
 		// Scroll to bottom when messages change
 		chatListRef.current?.scrollTo({
 			top: chatListRef.current.scrollHeight,
-			behavior: 'smooth',
+			behavior: 'instant',
 		})
 	}, [messages])
 
