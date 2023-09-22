@@ -18,7 +18,7 @@ export default function Home() {
 		const newMessage: Message = {
 			id: String(Date.now()),
 			text,
-			userId: currentUser.id,
+			user: currentUser,
 			createdAt: new Date(),
 		}
 		setMessages((prevMessages) => ({
@@ -43,6 +43,7 @@ export default function Home() {
 					key={selectedContactId}
 					messages={messages[selectedContactId] ?? []}
 					onSendMessage={sendMessage}
+					currentUser={currentUser}
 				/>
 			</section>
 		</main>

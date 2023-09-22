@@ -1,16 +1,21 @@
 import React from 'react'
-import { Message } from '@/lib/types'
+import { Message, User } from '@/lib/types'
 import MessageBubble from './MessageBubble'
 
 interface MessageListProps {
 	messages: Message[]
+	receiver: User
 }
 
-export default function MessageList({ messages }: MessageListProps) {
+export default function MessageList({ messages, receiver }: MessageListProps) {
 	return (
-		<div className="flex-[11] overflow-scroll">
+		<div className="flex-[11] overflow-scroll flex flex-col gap-4">
 			{messages.map((message, index) => (
-				<MessageBubble key={message.id} message={message} />
+				<MessageBubble
+					key={message.id}
+					message={message}
+					isOwner={message.user.id === receiver.id}
+				/>
 			))}
 		</div>
 	)
