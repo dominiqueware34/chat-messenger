@@ -10,13 +10,13 @@ interface MessageBubbleProps {
 function MessageBubble({ message, isOwner }: MessageBubbleProps) {
 	return (
 		<div
-			className={cn('p-4 border rounded-sm max-w-3xl w-1/3', {
+			className={cn('p-4 border rounded-sm max-w-3xl', {
 				'self-end': isOwner,
 				'bg-blue-50': isOwner,
 			})}
 		>
 			<div>{message.text}</div>
-			{isOwner ? null : <div>{message.user.name}</div>}
+			{isOwner ? null : <div>@{message.user.name}</div>}
 		</div>
 	)
 }
