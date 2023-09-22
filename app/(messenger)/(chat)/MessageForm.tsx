@@ -12,7 +12,7 @@ function MessageForm({ onSubmit }: MessageFormProps) {
 		setMessageText('')
 	}
 	return (
-		<div className="flex basis-16 gap-2 p-4">
+		<div className="flex basis-16 gap-2 p-4 border-t-2">
 			<form className="flex-1 grid grid-cols-12 gap-1" onSubmit={handleSumbit}>
 				<div className="col-span-10">
 					<input

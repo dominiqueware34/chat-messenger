@@ -12,7 +12,7 @@ const currentUser = {
 	name: 'Current User',
 }
 export default function Home() {
-	const [selectedContactId, setSelectedContactId] = useState('')
+	const [selectedContactId, setSelectedContactId] = useState(() => USERS[0].id)
 	const [messages, setMessages] = useState<Record<string, Message[]>>({})
 	const sendMessage = (text: string) => {
 		const newMessage: Message = {
