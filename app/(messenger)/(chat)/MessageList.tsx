@@ -9,7 +9,7 @@ interface MessageListProps {
 
 export default function MessageList({ messages, receiver }: MessageListProps) {
 	return (
-		<div className="flex-[11] overflow-scroll flex flex-col gap-4">
+		<div className=" overflow-scroll flex flex-col gap-4 px-4 py-2">
 			{messages.map((message, index) => (
 				<MessageBubble
 					key={message.id}

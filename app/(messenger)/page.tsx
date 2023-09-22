@@ -15,10 +15,11 @@ export default function Home() {
 	const [selectedContactId, setSelectedContactId] = useState(() => USERS[0].id)
 	const [messages, setMessages] = useState<Record<string, Message[]>>({})
 	const sendMessage = (text: string) => {
+		const testNum = Math.random()
 		const newMessage: Message = {
 			id: String(Date.now()),
 			text,
-			user: currentUser,
+			user: testNum > 0.5 ? currentUser : USERS[2],
 			createdAt: new Date(),
 		}
 		setMessages((prevMessages) => ({

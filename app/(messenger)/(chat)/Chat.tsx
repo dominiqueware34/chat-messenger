@@ -10,7 +10,7 @@ interface ChatProps {
 }
 function Chat({ messages, onSendMessage, currentUser }: ChatProps) {
 	return (
-		<div className="flex-1 flex flex-col p-4">
+		<div className="flex-1 grid grid-rows-[92vh_64px] gap-2">
 			<MessageList messages={messages} receiver={currentUser} />
 			<MessageForm onSubmit={onSendMessage} />
 		</div>
