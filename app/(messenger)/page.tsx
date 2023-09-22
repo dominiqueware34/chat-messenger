@@ -12,13 +12,13 @@ const currentUser = {
 	name: 'Current User',
 }
 export default function Home() {
-	const [selectedContactId, setSelectedContactId] = useState('')
+	const [selectedContactId, setSelectedContactId] = useState(() => USERS[0].id)
 	const [messages, setMessages] = useState<Record<string, Message[]>>({})
 	const sendMessage = (text: string) => {
 		const newMessage: Message = {
 			id: String(Date.now()),
 			text,
-			userId: currentUser.id,
+			user: currentUser,
 			createdAt: new Date(),
 		}
 		setMessages((prevMessages) => ({
@@ -43,6 +43,7 @@ export default function Home() {
 					key={selectedContactId}
 					messages={messages[selectedContactId] ?? []}
 					onSendMessage={sendMessage}
+					currentUser={currentUser}
 				/>
 			</section>
 		</main>

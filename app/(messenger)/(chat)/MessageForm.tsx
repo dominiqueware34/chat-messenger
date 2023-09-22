@@ -12,14 +12,14 @@ function MessageForm({ onSubmit }: MessageFormProps) {
 		setMessageText('')
 	}
 	return (
-		<div className="flex basis-16 gap-2 p-4">
+		<div className="flex gap-2 p-2 border-t">
 			<form className="flex-1 grid grid-cols-12 gap-1" onSubmit={handleSumbit}>
 				<div className="col-span-10">
-					<input
+					<textarea
 						onChange={(event) => setMessageText(event.target.value)}
 						value={messageText}
-						className="w-full resize-none outline-none border-2 rounded-md h-16"
-					/>
+						className="w-full resize-none outline-none border-2 rounded-md "
+					></textarea>
 				</div>
 
 				<div className="col-span-2 flex items-center justify-center">
