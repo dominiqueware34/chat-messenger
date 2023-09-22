@@ -14,16 +14,28 @@ const currentUser = {
 export default function Home() {
 	const [selectedContactId, setSelectedContactId] = useState('')
 	const [messages, setMessages] = useState<Record<string, Message[]>>({})
-	const sendMessage = (text: string) => {}
+	const sendMessage = (text: string) => {
+		const newMessage: Message = {
+			id: String(Date.now()),
+			text,
+			userId: currentUser.id,
+			createdAt: new Date(),
+		}
+		setMessages((prevMessages) => ({
+			...prevMessages,
+			[selectedContactId]: [
+				...(prevMessages[selectedContactId] ?? []),
+				newMessage,
+			],
+		}))
+	}
 	return (
 		<main className="min-h-screen grid grid-cols-12">
 			<aside className="col-span-3 p-4 border-r-2">
 				<ContactsList
 					contacts={USERS}
-					selectContact={function (contactId: string): void {
-						throw new Error('Function not implemented.')
-					}}
-					selectedContactId={''}
+					selectContact={setSelectedContactId}
+					selectedContactId={selectedContactId}
 				/>
 			</aside>
 			<section className="flex col-span-9">

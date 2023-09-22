@@ -15,16 +15,16 @@ function MessageForm({ onSubmit }: MessageFormProps) {
 		<div className="flex basis-16 gap-2 p-4">
 			<form className="flex-1 grid grid-cols-12 gap-1" onSubmit={handleSumbit}>
 				<div className="col-span-10">
-					<textarea
+					<input
 						onChange={(event) => setMessageText(event.target.value)}
 						value={messageText}
-						rows={4}
-						className="w-full resize-none outline-none border-2 rounded-md"
+						className="w-full resize-none outline-none border-2 rounded-md h-16"
 					/>
 				</div>
 
 				<div className="col-span-2 flex items-center justify-center">
 					<button
+						disabled={!messageText}
 						className="rounded border-2 bg-[#DDE2FE] px-3 py-2"
 						type="submit"
 					>
